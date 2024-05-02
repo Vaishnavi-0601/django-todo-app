@@ -1,6 +1,9 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from .models import *
 def index(request):
     # return HttpResponse('hello world')
-    return render(request, 'list.html')
+    tk=tasks.objects.all()
+    context={'tk':tk}
+    return render(request, 'list.html', context)
 # Create your views here.
